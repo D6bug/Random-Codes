@@ -1,0 +1,38 @@
+#include<iostream>
+using namespace std;
+
+int Prime_2nd(int a,int b){
+	int m=0,m2=0;
+	int i,j;
+	
+	for(i=a;i<=b;i++){
+		for(j=2;j<(i/2);j++){
+			if(i%j==0){         //checks for the prime
+				break;
+			}
+		}
+		if(j==(i/2) && i>m){   //Checks 2nd Largest
+			m2=m;
+			m=i;
+		}
+	}
+	return m2;
+}
+
+int main(){
+	
+	int l,u;
+	cout<<"Enter Lower Range : ";
+	cin>>l;
+	cout<<"Enter Upper Range : ";
+	cin>>u;
+	
+	int m=Prime_2nd(l,u);
+	if(m){
+		cout<<"\n2nd Largest Prime is "<<m;
+	}
+	else{
+		cout<<"\nNo 2nd Largest Prime is Found";
+	}
+	return 0;
+}
